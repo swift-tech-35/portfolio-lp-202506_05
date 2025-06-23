@@ -1,0 +1,358 @@
+:root {
+  --main-grad: linear-gradient(90deg, #5ee7df 0%, #b490ca 100%);
+  --cta-grad: linear-gradient(90deg, #ffaf7b 0%, #d76d77 100%);
+  --section-bg: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  --accent: #27b4ff;
+  --radius: 28px;
+  --shadow: 0 6px 32px rgba(50,30,120,0.16);
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+  color: #28224a;
+  background: var(--main-grad);
+  min-height: 100vh;
+  letter-spacing: 0.04em;
+}
+header {
+  text-align: center;
+  padding: 64px 16px 32px 16px;
+  background: transparent;
+  position: relative;
+}
+header h1 {
+  font-size: 2.7rem;
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+  margin: 0 0 16px 0;
+  background: var(--cta-grad);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 50px;
+  display: inline-block;
+  box-shadow: var(--shadow);
+  letter-spacing: 0.1em;
+}
+header p {
+  font-size: 1.5rem;
+  margin: 0 0 12px 0;
+  color: #4f0b87;
+}
+.main-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 24px;
+}
+.main-visual-img {
+  width: 340px;
+  max-width: 90vw;
+  height: 190px;
+  background: url('https://dummyimage.com/340x190/8fd3f4/fff&text=WiFi+HAPPY!') center/cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+  border: 7px solid #fff;
+  transition: transform .2s;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.main-visual-img.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all .8s cubic-bezier(.61,-0.11,.36,1.23);
+}
+.main-visual-img:hover {
+  transform: scale(1.025) rotate(-2deg);
+}
+.tagline {
+  font-size: 1.2rem;
+  color: #ff7b7b;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  background: #fff8c4;
+  padding: 6px 18px;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px #f9d29d99;
+  display: inline-block;
+  margin-top: -18px;
+  z-index: 2;
+  position: relative;
+  opacity: 0;
+  transform: scale(.95);
+  transition: all .6s cubic-bezier(.7,.2,.26,1.14);
+}
+.tagline.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.section {
+  max-width: 950px;
+  margin: 48px auto;
+  padding: 36px 22px;
+  background: var(--section-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all .7s cubic-bezier(.68,-0.15,.24,1.26);
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section h2 {
+  color: #fd6585;
+  margin: 0 0 24px 0;
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+  text-shadow: 0 3px 12px #fff8;
+}
+.features {
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.feature-card {
+  flex: 1 1 260px;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 2px 14px #fae1ddaa;
+  padding: 24px 16px 14px 16px;
+  margin-bottom: 12px;
+  text-align: center;
+  transition: transform 0.15s;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all .7s cubic-bezier(.68,-0.15,.24,1.26);
+}
+.feature-card img {
+  width: 78px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: #f6d36544;
+  padding: 7px;
+  box-shadow: 0 2px 10px #fcaf85aa;
+  border: 2px solid #fda08599;
+}
+.feature-card p {
+  font-size: 1.08rem;
+  color: #4f3b7a;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin: 12px 0;
+  justify-content: center;
+}
+.flow-step {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 1px 8px #e7beeabb;
+  padding: 18px 22px;
+  min-width: 170px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  position: relative;
+  border: 2px dashed #fd658555;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all .6s cubic-bezier(.68,-0.15,.24,1.26);
+}
+.flow-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.flow-step::before {
+  content: attr(data-step);
+  display: block;
+  background: var(--cta-grad);
+  color: #fff;
+  font-size: 1.1rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  line-height: 34px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2px 7px #fd658580;
+}
+.plan-tabs {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.plan-tab {
+  background: #fff;
+  color: #d76d77;
+  border: 2px solid #ffaf7b55;
+  border-radius: 18px;
+  padding: 9px 24px;
+  margin: 0 3px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all .18s;
+  box-shadow: 0 1px 7px #fda08525;
+  outline: none;
+}
+.plan-tab.active,
+.plan-tab:focus {
+  background: var(--cta-grad);
+  color: #fff;
+  border: 2px solid #fd6585;
+  box-shadow: 0 2px 12px #fd658555;
+}
+.plan-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  justify-content: center;
+  margin: 16px 0 28px 0;
+}
+.plan-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px #b490ca55;
+  padding: 18px 32px;
+  min-width: 180px;
+  text-align: center;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  position: relative;
+  border: 3px solid #ffaf7b44;
+  transition: transform .15s, opacity .15s;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.plan-card.hide {
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+.plan-card .plan-price {
+  font-size: 1.7rem;
+  color: #fd6585;
+  margin: 0 0 8px 0;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 0 2px 7px #fff5;
+}
+.plan-card .plan-label {
+  font-size: 1.04rem;
+  color: #b490ca;
+  margin-bottom: 6px;
+}
+.cta {
+  text-align: center;
+  margin: 58px 0 20px 0;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: all .7s cubic-bezier(.68,-0.15,.24,1.26);
+}
+.cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cta-btn {
+  background: var(--cta-grad);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding: 26px 70px;
+  border: none;
+  border-radius: 44px;
+  cursor: pointer;
+  letter-spacing: 0.13em;
+  box-shadow: 0 3px 30px #fd658580;
+  transition: background 0.13s, transform 0.13s;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-top: 6px;
+}
+.cta-btn:hover {
+  background: linear-gradient(90deg, #d76d77 0%, #ffaf7b 100%);
+  transform: scale(1.04) rotate(-1deg);
+}
+.cta-note {
+  color: #b490ca;
+  font-size: 0.98rem;
+  margin-top: 6px;
+}
+footer {
+  background: #fff;
+  text-align: center;
+  padding: 26px 0 20px 0;
+  color: #ad79be;
+  font-size: 1.03rem;
+  border-radius: 0 0 28px 28px;
+  margin: 38px 0 0 0;
+  letter-spacing: 0.07em;
+  box-shadow: 0 -1px 12px #fda08560;
+}
+/* デコ・バルーンなど */
+.balloon {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.27;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(0.5px);
+}
+.balloon1 {
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, #ffaf7b 70%, #fff0 100%);
+  left: -60px; top: -60px;
+}
+.balloon2 {
+  width: 90px; height: 90px;
+  background: radial-gradient(circle, #8fd3f4 70%, #fff0 100%);
+  right: -36px; bottom: -36px;
+}
+.balloon3 {
+  width: 110px; height: 110px;
+  background: radial-gradient(circle, #fd6585 70%, #fff0 100%);
+  left: 25vw; top: 80vh;
+}
+@media (max-width: 770px) {
+  header h1 { font-size: 2rem; padding: 8px 16px;}
+  header { padding: 40px 8px 20px 8px; }
+  .main-visual-img { width: 94vw; height: 140px; }
+  .section { padding: 18px 4vw; margin: 26px 4px; border-radius: 14px;}
+  .section h2 { font-size: 1.2rem; }
+  .features { gap: 10px; }
+  .feature-card { min-width: 80vw; padding: 12px 7px 8px 7px; }
+  .flow { gap: 12px; }
+  .flow-step { padding: 12px 8px; min-width: 70vw;}
+  .plan-list { gap: 8px; }
+  .plan-card { padding: 8px 8vw; min-width: 100px; font-size: 1rem; }
+  .cta-btn { font-size: 1.1rem; padding: 16px 0; width: 97vw;}
+  .cta { margin: 28px 0 9px 0;}
+  footer { border-radius: 0 0 12px 12px; font-size: 0.93rem;}
+}
